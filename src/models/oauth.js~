@@ -1,0 +1,14 @@
+var AuthCode = require("./credentials/authCode");
+var AccessToken = require("./credentials/accessToken");
+var User = require("./user");
+var App = require("./app");
+
+module.exports = {
+  getAuthCode: AuthCode.getAuthCode,
+  saveAuthCode: AuthCode.saveAuthCode,
+  getAccessToken: AccessToken.getAccessToken,
+  saveAccessToken: AccessToken.saveAccessToken,
+  getUser: User.getUser,
+  getClient: App.getClient,
+  grantTypeAllowed: App.grantTypeAllowed
+};
