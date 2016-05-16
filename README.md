@@ -44,6 +44,36 @@
 }
 ```
 
+### 使用authorization_code方式获取token令牌(第三方应用)
+
+使用authorization_code方式获取token， 客户端需要访问  'http://localhost:3000/oauth/authorise' url query字符串需要提供客户端帐号、认证方式为'code'、跳转地址三个参数： 
+
+* **query**
+    * `response_type=code&client_id=oauth&redirect_uri=http://localhost:3000/redirect`
+
+之后跳转到认证系统网站，用户输入 ‘帐号’、‘密码’，点击‘授权’，服务器自动跳转到客户端提供的跳转地址，并附加一个query参数‘code’：
+
+* **query**
+    * `http://localhost:3000/redirect?code=3dc41e2f52550d546dddd71e1de79c950e79cec9`
+
+此时客户端需要截取并保存'code'参数（如：3dc41e2f52550d546dddd71e1de79c950e79cec9）， 之后客户端POST访问`http://localhost:3000/oauth/token`，同时将客户端帐号信息、认证方式及刚才截取到的'code'添加到body区：如
+
+* **Headers**
+    * **Content-Type**: `application/x-www-form-urlencoded`
+* **Body**
+    * `grant_type=authorization_code&client_id=oauth&client_secret=oauth&code=3dc41e2f52550d546dddd71e1de79c950e79cec9`
+
+一切就绪，你将得到类似下面的一个回复信息：
+
+```
+{
+    "token_type": "bearer",
+    "access_token": "72ab415822b56cf0f9f93f07fe978d9aae859325",
+    "expires_in": 3600
+}
+```
+
+
 ### 如何使用token令牌访问资源
 
 现在，你可以使用刚刚获得的token访问该系统提供的资源，比如，你可以 GET 访问 `http://localhost:3000/` ，并将token包含在头部：

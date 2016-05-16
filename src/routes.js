@@ -1,5 +1,5 @@
 global.unauthorized = function(res, message) {
-  res.writeHead(401);
+  res.writeHead(401,{'Content-Type': 'text/html;charset=UTF-8'});
   return res.end(message);
 };
 

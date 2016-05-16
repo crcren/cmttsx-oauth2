@@ -8,21 +8,6 @@ app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-//app.engine("html", require("ejs").renderFile);
-
-//app.use(express["static"](__dirname + "/../views"));
-
-//app.set("view engine", "html");
-
-//signature = "asdasdcookies signatureasdasd";
-
-//app.use(require("cookie-parser")(signature));
-
-//app.use(require("cookie-session")({
-//  key: "oauth-server",
-//  secret: signature
-//}));
-
 app.oauth = oauthServer({
   model: models.oauth,
   grants: ["password", "authorization_code"],

@@ -5,7 +5,7 @@
 module.exports = function(app) {
    app.all('/oauth/token', app.oauth.grant());
    return app.get('/', app.oauth.authorise(), function (req, res) {
-      return res.send('Congratulations, you are in a secret area!' + req.headers['username']);
+      return res.send('恭喜，您现在可访问受限资源!');
    });
 };
 
