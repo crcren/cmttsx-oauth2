@@ -4,7 +4,7 @@
 
 ## 安装说明
 
-本软件需安装nodejs和npm（具体安装方法请自行百度），下载该软件请使用：
+本软件需安装nodejs、npm和mongodb（具体安装方法请自行百度），下载该软件请使用：
 1、如果安装了git，请使用git clone https://github.com/crcren/cmttsx-oauth2.git 。
 2、未安装git，也可以打开https://github.com/crcren/cmttsx-oauth2，点击download zip 下载该模块，并解压。
 然后打开终端工具，进入到cmttsx-oauth2目录下，运行 ‘npm install’ 安装所有依赖库（如果是linux，你可能需要在root帐号下进行），然后运行‘npm start’。该服务将被运行在 `http://localhost:3000` 下。
